@@ -327,3 +327,35 @@ XMCD – для совместимости со старыми версиями 
 Преподаватель _________________ Яковлева К.С.
 Студент _________________ _________________
 Дата: 28 сентября 2026 г.
+
+
+import tkinter as tk
+from tkinter import messagebox as mb
+
+users = {"admin": "12345"}
+
+def login():
+    if users.get(u.get()) == p.get():
+        root.destroy()
+        tk.Label(tk.Tk(), text="Вы вошли!").pack(padx=50, pady=30)
+        tk.mainloop()
+    else:
+        mb.showerror("Ошибка", "Неверные данные")
+
+def reg():
+    users[u.get()] = p.get()
+    mb.showinfo("Успех", "Зарегистрирован")
+
+root = tk.Tk()
+
+u = tk.Entry(root)
+u.pack()
+
+p = tk.Entry(root, show="*")
+p.pack()
+
+tk.Button(root, text="Войти", command=login).pack()
+tk.Button(root, text="Регистрация", command=reg).pack()
+
+root.mainloop()
+
